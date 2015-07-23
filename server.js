@@ -6,7 +6,7 @@ var app           = express();
 var port          = process.env.PORT || 3000;
 var userRoutes    = express.Router();
 
-app.use(bodyParser());
+//app.use(bodyParser());
 
 require('./routes/user-routes')(userRoutes);
 app.use('/api', userRoutes);
@@ -18,3 +18,7 @@ mongoose.connect(process.env.testMongoUri || 'mongodb://localhost/userFileDb');
 app.listen(port, function() {
   console.log('Server available at localhost: ' + port);
 });
+
+// info ////////////////////////////////////////////////////////////////
+// http://kalapun.com/posts/node-js-open-source-and-secret-keys/
+// http://aws.amazon.com/sdk-for-node-js/
