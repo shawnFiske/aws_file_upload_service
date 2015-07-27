@@ -1,8 +1,19 @@
 var mongoose      = require('mongoose');
-var userSchema    = mongoose.Schema({
+var Schema        = mongoose.Schema
+
+var userSchema    = Schema({
   name:String,
-  files: []
+  //password: String,
+  files: Array
+  //files: [{ type: Schema.Types.ObjectId, ref: 'File'}]
 });
 
+// userSchema.methods.generatHash = function(password) {
+//   returnn bcrypt.hashSync(password, bcrypt.genSaltSync(8));
+// }
+
+// userSchema.methods.checkPassword = function(password){
+//   return bcrypt.compareSync(password, this.password);
+// }
 
 module.exports = mongoose.model('User', userSchema);
